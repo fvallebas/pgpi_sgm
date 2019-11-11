@@ -12,7 +12,22 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    return 'Home';
+});
+
+Route::get('/usuarios', 'UserController@index');
+
+Route::get('/usuarios/{id}', 'UserController@show')
+                            ->where('id', '\d*');
+
+Route::get('/usuarios/nuevo', 'UserController@create_new_user');
+
+Route::get('/saludo/{name}/{nickname?}', 'WelcomeUserController');
+
+Route::get('/prueba', function(){
+
+    return view('prueba');
 });
 
 Auth::routes();
@@ -22,3 +37,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
