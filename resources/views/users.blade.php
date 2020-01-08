@@ -6,7 +6,7 @@
     @forelse($users as $user)
         <li>{{ $user }}</li>
     @empty
-        <p>No hay usuarios disponibles  </p>
+        <p>No hay usuarios disponibles </p>
     @endforelse
 @endsection
 
