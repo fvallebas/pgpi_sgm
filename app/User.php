@@ -2,6 +2,8 @@
 
 namespace App;
 use App\Role;
+use App\Client;
+use App\Gestor;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -41,6 +43,16 @@ class User extends Authenticatable
     public function roles()
     {
         return $this->belongsToMany(Role::class)->withTimestamps();
+    }
+
+    public function gestor()
+    {
+        return $this->hasOne(Client::class)->withTimestamps();
+    }
+
+    public function client()
+    {
+        return $this->hasOne(Client::class)->withTimestamps();
     }
 
     public function authorizeRoles($roles)
