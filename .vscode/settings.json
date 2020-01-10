@@ -1,0 +1,13 @@
+{
+    "sqltools.connections": [
+        {
+            "askForPassword": true,
+            "database": "sgm",
+            "dialect": "MySQL",
+            "name": "my_conn",
+            "port": 3306,
+            "server": "localhost",
+            "username": "root"
+        }
+    ]
+}

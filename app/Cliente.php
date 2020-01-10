@@ -1,10 +1,11 @@
 <?php
 
 namespace App;
+
 use Illuminate\Database\Eloquent\Model;
 use App\User;
 
-class Client extends Model
+class Cliente extends Model
 {
     public function users()
     {
