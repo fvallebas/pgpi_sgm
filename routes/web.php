@@ -38,3 +38,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//Gestores
+Route::get('/gestores', 'GestorController@index');
+
+//Admin
+Route::get('/admin', 'AdminController@index');
+
+
