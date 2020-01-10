@@ -2,7 +2,7 @@
 
 namespace App;
 use App\Role;
-use App\Client;
+use App\Cliente;
 use App\Gestor;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -50,9 +50,9 @@ class User extends Authenticatable
         return $this->hasOne(Client::class)->withTimestamps();
     }
 
-    public function client()
+    public function cliente()
     {
-        return $this->hasOne(Client::class)->withTimestamps();
+        return $this->hasOne(Cliente::class)->withTimestamps();
     }
 
     public function authorizeRoles($roles)
