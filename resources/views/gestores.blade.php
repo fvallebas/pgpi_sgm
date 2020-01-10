@@ -11,6 +11,9 @@
           <a class="nav-link active">Usuarios</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link">Muelles</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link">Horarios</a>
         </li>
     </ul>
