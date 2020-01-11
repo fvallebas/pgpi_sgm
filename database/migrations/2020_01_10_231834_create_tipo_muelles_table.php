@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMuellesTable extends Migration
+class CreateTipoMuellesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateMuellesTable extends Migration
      */
     public function up()
     {
-        Schema::create('muelles', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('tipo_muelles', function (Blueprint $table) {
+            $table->bigIncrements('id')->unsigned();
+            $table->string('tipo_operacion');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreateMuellesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('muelles');
+        Schema::dropIfExists('tipo_muelles');
     }
 }
