@@ -41,10 +41,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Gestores
 Route::get('/gestores', 'GestorController@index');
 
+//Crear_Gestores
+Route::any('/crear_gestores', 'GestorController@create');
+
 //Admin
 Route::get('/admin', 'AdminController@index');
 
 //Clientes
 Route::get('/clientes', 'ClienteController@index');
+
+
 
 
