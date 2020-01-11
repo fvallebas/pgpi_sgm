@@ -6,7 +6,7 @@ use App\User;
 
 class Gestor extends Model
 {
-    public function users()
+    public function user()
     {
         return $this->belongsTo(User::class)->withTimestamps();
     }

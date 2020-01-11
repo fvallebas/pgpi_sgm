@@ -47,7 +47,7 @@ class User extends Authenticatable
 
     public function gestor()
     {
-        return $this->hasOne(Client::class)->withTimestamps();
+        return $this->hasOne(Cliente::class)->withTimestamps();
     }
 
     public function cliente()
