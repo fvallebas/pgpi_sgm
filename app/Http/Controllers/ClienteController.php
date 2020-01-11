@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Cliente;
 
 class ClienteController extends Controller
 {
@@ -13,7 +14,9 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        return view ('clientes');
+        $clientes = Cliente::all();
+
+     return view('index_clientes', compact('clientes'));
     }
 
     /**
@@ -34,7 +37,16 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'user_id' => 'required|max:255',
+            'matricula' => 'required|alpha_num',
+            'marca' => 'required|alpha_num',
+            'modelo' => 'required|alpha_num',
+            'carga_max' => 'required|numeric',
+        ]);
+        $cliente = Cliente::create($validatedData);
+   
+        return redirect('/clientes')->with('success', 'Cliente creado correctamente');
     }
 
     /**
@@ -56,7 +68,9 @@ class ClienteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cliente = Cliente::findOrFail($id);
+
+        return view('edit_clientes', compact('cliente'));
     }
 
     /**
@@ -68,7 +82,15 @@ class ClienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'matricula' => 'required|alpha_num',
+            'marca' => 'required|alpha_num',
+            'modelo' => 'required|alpha_num',
+            'carga_max' => 'required|numeric',
+        ]);
+        Cliente::whereId($id)->update($validatedData);
+
+        return redirect('/clientes')->with('success', 'Cliente actualizado correctamente');
     }
 
     /**
@@ -79,6 +101,9 @@ class ClienteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cliente = Cliente::findOrFail($id);
+        $cliente->delete();
+
+        return redirect('/clientes')->with('success', 'Cliente borrado correctamente');
     }
 }
