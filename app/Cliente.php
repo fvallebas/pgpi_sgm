@@ -17,4 +17,7 @@ class Cliente extends Model
     {
         return $this->hasOne(Vehiculo::class)->withTimestamps();
     }
+
+    protected $fillable = ['id', 'user_id', 'matricula', 'marca', 'modelo', 'carga_max'];
+
 }

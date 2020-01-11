@@ -45,6 +45,5 @@ Route::get('/gestores', 'GestorController@index');
 Route::get('/admin', 'AdminController@index');
 
 //Clientes
-Route::get('/clientes', 'ClienteController@index');
-
-
+//Route::get('/clientes', 'ClienteController@index');
+Route::resource('clientes', 'ClienteController');
