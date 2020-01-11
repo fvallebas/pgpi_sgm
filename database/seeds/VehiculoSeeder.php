@@ -25,7 +25,7 @@ class VehiculoSeeder extends Seeder
         $vehiculo->save();
 
         $vehiculo = new Vehiculo();
-        $vehiculo->tipo_vehiculo = 'Furgoneta';
+        $vehiculo->tipo_vehiculo = 'Camión';
         $vehiculo->tiempo_carga = '60';
         $vehiculo->tiempo_descarga = '45';
         $vehiculo->save();
