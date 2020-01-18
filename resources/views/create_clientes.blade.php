@@ -49,7 +49,7 @@
               <label for="quantity">Carga Máxima :</label>
               <input type="text" class="form-control" name="carga_max"/>
           </div>
-          <button type="submit" class="btn btn-primary">Create Book</button>
+          <button type="submit" class="btn btn-primary">Crear Cliente</button>
       </form>
   </div>
 </div>

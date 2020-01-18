@@ -11,4 +11,6 @@ class Vehiculo extends Model
     {
         return $this->belongsTo(Cliente::class)->withTimestamps();
     }
+
+    protected $fillable = ['id', 'tipo_vehiculo', 'tiempo_carga','tiempo_descarga'];
 }

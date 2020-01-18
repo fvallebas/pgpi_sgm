@@ -47,3 +47,6 @@ Route::get('/admin', 'AdminController@index');
 //Clientes
 //Route::get('/clientes', 'ClienteController@index');
 Route::resource('clientes', 'ClienteController');
+
+//Vehiculos
+Route::resource('vehiculos', 'VehiculoController');
