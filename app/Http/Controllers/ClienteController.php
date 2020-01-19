@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Vehiculo;
 use App\Cliente;
+use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class ClienteController extends Controller
 {
@@ -15,6 +18,7 @@ class ClienteController extends Controller
     public function index()
     {
         $clientes = Cliente::all();
+
 
      return view('index_clientes', compact('clientes'));
     }
@@ -37,14 +41,41 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
+        $user = new User();
+
+
         $validatedData = $request->validate([
-            'user_id' => 'required|max:255',
+            'name' => 'required|max:255',
+            'email' => 'required|max:255',
+            'password' => 'required|alpha_num',
+        ]);
+        $user->name = $validatedData['name'];
+        $user->email = $validatedData['email'];
+        $user->password = Hash::make($validatedData['password']);
+
+
+        $validatedData = $request->validate([
             'matricula' => 'required|alpha_num',
             'marca' => 'required|alpha_num',
             'modelo' => 'required|alpha_num',
             'carga_max' => 'required|numeric',
+            'vehiculo_id' => 'required|alpha_num',
         ]);
-        $cliente = Cliente::create($validatedData);
+        $tipo_vehiculo = Vehiculo::where('tipo_vehiculo','=', $validatedData['vehiculo_id'])->firstOrFail();
+
+        $cliente = new Cliente();
+
+        $cliente->user_id = $user->id;
+        $cliente->matricula = $validatedData['matricula'];
+        $cliente->marca = $validatedData['marca'];
+        $cliente->modelo = $validatedData['modelo'];
+        $cliente->carga_max = $validatedData['carga_max'];
+        $cliente->vehiculo_id = $tipo_vehiculo['id'];
+
+        $user->cliente()->save($cliente);
+
+        $cliente->user()->associate($user)->save();
+        
    
         return redirect('/clientes')->with('success', 'Cliente creado correctamente');
     }
@@ -91,6 +122,7 @@ class ClienteController extends Controller
         Cliente::whereId($id)->update($validatedData);
 
         return redirect('/clientes')->with('success', 'Cliente actualizado correctamente');
+
     }
 
     /**
