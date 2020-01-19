@@ -77,8 +77,8 @@ class ClienteController extends Controller
         $user->cliente()->save($cliente);
         $cliente->user()->associate($user)->save();
 
-        //$tipo_vehiculo->cliente()->save($cliente);
-        $cliente->vehiculo()->save($tipo_vehiculo);
+        $tipo_vehiculo->clientes()->save($cliente);
+        $cliente->vehiculo()->associate($tipo_vehiculo)->save();
         
    
         return redirect('/clientes')->with('success', 'Cliente creado correctamente');

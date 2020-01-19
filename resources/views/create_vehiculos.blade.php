@@ -29,21 +29,17 @@
     @endif
       <form method="post" action="{{ route('vehiculos.store') }}">
           <div class="form-group">
-              @csrf
-              <label for="name">ID :</label>
-              <input type="text" class="form-control" name="id"/>
-          </div>
-          <div class="form-group">
+          @csrf
               <label for="price">Tipo de Vehículo :</label>
               <input type="text" class="form-control" name="tipo_vehiculo"/>
           </div>
           <div class="form-group">
-              <label for="quantity">Tiempo de Carga : (HH:mm:ss)</label>
-              <input type="text" class="form-control" name="tiempo_carga"/>
+              <label for="quantity">Tiempo de Carga : (HH:mm)</label>
+              <input type="time" class="form-control" name="tiempo_carga"/>
           </div>
           <div class="form-group">
-              <label for="quantity">Tiempo de Descarga : (HH:mm:ss)</label>
-              <input type="text" class="form-control" name="tiempo_descarga"/>
+              <label for="quantity">Tiempo de Descarga : (HH:mm)</label>
+              <input type="time" class="form-control" name="tiempo_descarga"/>
           </div>
           <button type="submit" class="btn btn-primary">Crear Vehículo</button>
       </form>

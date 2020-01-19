@@ -46,6 +46,7 @@ A continuación se muestra una tabla con la información referente a los cliente
     <thead>
         <tr bgcolor="#003865" style="color: #FFFFFF;" align="center">
           <td>ID</td>
+          <td>Nombre</td>
           <td>Tipo de Vehículo</td>
           <td>Matrícula</td>
           <td>Marca</td>
@@ -56,8 +57,9 @@ A continuación se muestra una tabla con la información referente a los cliente
     </thead>
     <tbody>
         @foreach($clientes as $cliente)
-        <tr>
+        <tr align="center">
             <td>{{$cliente->id}}</td>
+            <td>{{$cliente->user->name}}</td>
             <td>{{$cliente->vehiculo->tipo_vehiculo}}</td>
             <td>{{$cliente->matricula}}</td>
             <td>{{$cliente->marca}}</td>

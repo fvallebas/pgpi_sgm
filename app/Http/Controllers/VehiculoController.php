@@ -38,7 +38,6 @@ class VehiculoController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'id' => 'required|max:255',
             'tipo_vehiculo' => 'required|alpha_num',
             'tiempo_carga' => 'required|max:255',
             'tiempo_descarga' => 'required|max:255',

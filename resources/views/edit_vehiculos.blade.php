@@ -31,12 +31,12 @@
               <input type="text" class="form-control" name="tipo_vehiculo" value="{{$vehiculo->tipo_vehiculo}}"/>
           </div>
           <div class="form-group">
-              <label for="price">Tiempo de Carga : (HH:mm:ss)</label>
-              <input type="text" class="form-control" name="tiempo_carga" value="{{$vehiculo->tiempo_carga}}"/>
+              <label for="price">Tiempo de Carga : (HH:mm)</label>
+              <input type="time" class="form-control" name="tiempo_carga" value="{{$vehiculo->tiempo_carga}}"/>
           </div>
           <div class="form-group">
-              <label for="quantity">Tiempo de Descarga : (HH:mm:ss)</label>
-              <input type="text" class="form-control" name="tiempo_descarga" value="{{$vehiculo->tiempo_descarga}}"/>
+              <label for="quantity">Tiempo de Descarga : (HH:mm)</label>
+              <input type="time" class="form-control" name="tiempo_descarga" value="{{$vehiculo->tiempo_descarga}}"/>
           </div>
           <button type="submit" class="btn btn-primary">Actualizar Vehículo</button>
       </form>

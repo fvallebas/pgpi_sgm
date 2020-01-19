@@ -57,8 +57,8 @@ A continuación se muestra una tabla con la información de los distintos tipos 
         <tr>
             <td>{{$vehiculo->id}}</td>
             <td>{{$vehiculo->tipo_vehiculo}}</td>
-            <td>{{$vehiculo->tiempo_carga}}</td>
-            <td>{{$vehiculo->tiempo_descarga}}</td>
+            <td>{{substr($vehiculo->tiempo_carga,0,-3)}}</td>
+            <td>{{substr($vehiculo->tiempo_descarga,0,-3)}}</td>
             <td><a href="{{ route('vehiculos.edit',$vehiculo->id)}}" class="btn btn-primary">Editar</a></td>
             <td>
                 <form action="{{ route('vehiculos.destroy', $vehiculo->id)}}" method="post">
