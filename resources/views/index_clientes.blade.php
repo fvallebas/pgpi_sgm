@@ -47,6 +47,7 @@ A continuación se muestra una tabla con la información referente a los cliente
         <tr bgcolor="#003865" style="color: #FFFFFF;" align="center">
           <td>ID</td>
           <td>Nombre</td>
+          <td>Email</td>
           <td>Tipo de Vehículo</td>
           <td>Matrícula</td>
           <td>Marca</td>
@@ -60,6 +61,7 @@ A continuación se muestra una tabla con la información referente a los cliente
         <tr align="center">
             <td>{{$cliente->id}}</td>
             <td>{{$cliente->user->name}}</td>
+            <td>{{$cliente->user->email}}</td>
             <td>{{$cliente->vehiculo->tipo_vehiculo}}</td>
             <td>{{$cliente->matricula}}</td>
             <td>{{$cliente->marca}}</td>

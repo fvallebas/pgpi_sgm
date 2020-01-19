@@ -24,9 +24,25 @@
       </div><br />
     @endif
       <form method="post" action="{{ route('clientes.update', $cliente->id) }}">
-          <div class="form-group">
+      <div class="form-group">
               @csrf
               @method('PATCH')
+          <label for="vehiculo_id">Tipo de Vehículo</label>
+          <select class="form-control" id="vehiculo_id" name="vehiculo_id">
+          @foreach ($lista_vehiculos as $vehiculo)
+              <option value={{$vehiculo->id}}>{{$vehiculo->tipo_vehiculo}}</option>
+          @endforeach
+          </select>
+          </div>
+          <div class="form-group">
+              <label for="name">Nombre :</label>
+              <input type="text" class="form-control" name="name" value="{{$cliente->user->name}}"/>
+          </div>
+          <div class="form-group">
+              <label for="name">Email :</label>
+              <input type="text" class="form-control" name="email" value="{{$cliente->user->email}}"/>
+          </div>
+          <div class="form-group">
               <label for="name">Matrícula :</label>
               <input type="text" class="form-control" name="matricula" value="{{$cliente->matricula}}"/>
           </div>

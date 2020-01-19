@@ -30,7 +30,9 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        return view ('create_clientes');
+        $lista_vehiculos = Vehiculo::all();
+
+        return view ('create_clientes', compact('lista_vehiculos'));
     }
 
     /**
@@ -63,7 +65,7 @@ class ClienteController extends Controller
             'carga_max' => 'required|numeric',
             'vehiculo_id' => 'required|alpha_num',
         ]);
-        $tipo_vehiculo = Vehiculo::where('tipo_vehiculo','=', $validatedData['vehiculo_id'])->firstOrFail();
+        $tipo_vehiculo = Vehiculo::where('id','=', $validatedData['vehiculo_id'])->firstOrFail();
 
         $cliente = new Cliente();
 
@@ -103,9 +105,11 @@ class ClienteController extends Controller
      */
     public function edit($id)
     {
+        $lista_vehiculos = Vehiculo::all();
         $cliente = Cliente::findOrFail($id);
 
-        return view('edit_clientes', compact('cliente'));
+        return view('edit_clientes', compact('cliente'),compact('lista_vehiculos'));
+
     }
 
     /**
@@ -117,13 +121,23 @@ class ClienteController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $cliente = Cliente::whereId($id)->firstOrFail();
+        $user = User::whereId($cliente->user_id);
+
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|max:255',
+        ]);
+        $user->update($validatedData);
+
         $validatedData = $request->validate([
             'matricula' => 'required|alpha_num',
             'marca' => 'required|alpha_num',
             'modelo' => 'required|alpha_num',
             'carga_max' => 'required|numeric',
+            'vehiculo_id' => 'required|alpha_num',
         ]);
-        Cliente::whereId($id)->update($validatedData);
+        $cliente->update($validatedData);
 
         return redirect('/clientes')->with('success', 'Cliente actualizado correctamente');
 

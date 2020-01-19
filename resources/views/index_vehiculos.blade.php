@@ -54,7 +54,7 @@ A continuación se muestra una tabla con la información de los distintos tipos 
     </thead>
     <tbody>
         @foreach($vehiculos as $vehiculo)
-        <tr>
+        <tr align="center">
             <td>{{$vehiculo->id}}</td>
             <td>{{$vehiculo->tipo_vehiculo}}</td>
             <td>{{substr($vehiculo->tiempo_carga,0,-3)}}</td>

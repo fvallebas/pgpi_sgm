@@ -42,8 +42,12 @@
               <input type="password" class="form-control" name="password"/>
           </div>
           <div class="form-group">
-              <label for="quantity">Tipo de vehículo :</label>
-              <input type="text" class="form-control" name="vehiculo_id"/>
+          <label for="vehiculo_id">Tipo de Vehículo</label>
+          <select class="form-control" id="vehiculo_id" name="vehiculo_id">
+          @foreach ($lista_vehiculos as $vehiculo)
+              <option value={{$vehiculo->id}}>{{$vehiculo->tipo_vehiculo}}</option>
+          @endforeach
+          </select>
           </div>
           <div class="form-group">
               <label for="price">Matrícula :</label>
