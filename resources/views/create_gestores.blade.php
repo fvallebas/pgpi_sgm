@@ -15,7 +15,7 @@
 <br>
 <div class="card uper">
   <div class="card-header">
-    Nuevo Cliente
+    Nuevo Gestor
   </div>
   <div class="card-body">
     @if ($errors->any())
@@ -27,29 +27,17 @@
         </ul>
       </div><br />
     @endif
-      <form method="post" action="{{ route('clientes.store') }}">
+      <form method="post" action="{{ route('gestores.store') }}">
           <div class="form-group">
               @csrf
               <label for="name">Usuario: (id de usuario)</label>
-              <input type="text" class="form-control" name="use_id"/>
+              <input type="text" class="form-control" name="user_id"/>
           </div>
           <div class="form-group">
-              <label for="price">Matrícula :</label>
-              <input type="text" class="form-control" name="matricula"/>
+              <label for="price">Horario :</label>
+              <input type="text" class="form-control" name="horario"/>
           </div>
-          <div class="form-group">
-              <label for="quantity">Marca :</label>
-              <input type="text" class="form-control" name="marca"/>
-          </div>
-          <div class="form-group">
-              <label for="quantity">Modelo :</label>
-              <input type="text" class="form-control" name="modelo"/>
-          </div>
-          <div class="form-group">
-              <label for="quantity">Carga Máxima :</label>
-              <input type="text" class="form-control" name="carga_max"/>
-          </div>
-          <button type="submit" class="btn btn-primary">Crear Cliente</button>
+          <button type="submit" class="btn btn-primary">Crear Gestor</button>
       </form>
   </div>
 </div>

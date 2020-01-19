@@ -39,7 +39,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 //Gestores
-Route::get('/gestores', 'GestorController@index');
+Route::resource('/gestores', 'GestorController');
 Route::get('/gestores', 'GestorController@index')->name('gestores');
 
 //Admin

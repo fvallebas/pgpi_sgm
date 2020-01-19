@@ -31,6 +31,12 @@
 </div>
 <br>
 <div class="uper">
+
+<h4>Clientes</h4>
+<p>
+A continuación se muestra una tabla con la información referente a los clientes que utilizan los muelles.
+</p>
+
   @if(session()->get('success'))
     <div class="alert alert-success">
       {{ session()->get('success') }}  
@@ -38,14 +44,14 @@
   @endif
   <table class="table table-striped">
     <thead>
-        <tr>
+        <tr bgcolor="#003865" style="color: #FFFFFF;" align="center">
           <td>ID</td>
           <td>ID Usuario</td>
           <td>Matrícula</td>
           <td>Marca</td>
           <td>Modelo</td>
           <td>Carga Máxima</td>
-          <td colspan="2">Action</td>
+          <td colspan="2"><a href="{{ url('clientes/create') }}" class="btn btn-success btn-block"> Añadir Cliente</a></td>
         </tr>
     </thead>
     <tbody>

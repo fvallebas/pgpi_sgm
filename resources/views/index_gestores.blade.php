@@ -31,6 +31,12 @@
 </div>
 <br>
 <div class="uper">
+
+<h4>Gestores</h4>
+<p>
+A continuación se muestra una tabla con la información de los gestores de los muelles.
+</p>
+
   @if(session()->get('success'))
     <div class="alert alert-success">
       {{ session()->get('success') }}  
@@ -38,28 +44,24 @@
   @endif
   <table class="table table-striped">
     <thead>
-        <tr>
+        <tr bgcolor="#003865" style="color: #FFFFFF;" align="center">
           <td>ID</td>
           <td>ID Usuario</td>
-          <td>Matrícula</td>
-          <td>Marca</td>
-          <td>Modelo</td>
-          <td>Carga Máxima</td>
-          <td colspan="2">Action</td>
+          <td>Horario</td>
+
+          <td colspan="2"><a href="{{ url('gestores/create') }}" class="btn btn-success btn-block"> Añadir Gestor</a></td>
         </tr>
     </thead>
     <tbody>
-        @foreach($clientes as $cliente)
+        @foreach($gestores as $gestor)
         <tr>
-            <td>{{$cliente->id}}</td>
-            <td>{{$cliente->user_id}}</td>
-            <td>{{$cliente->matricula}}</td>
-            <td>{{$cliente->marca}}</td>
-            <td>{{$cliente->modelo}}</td>
-            <td>{{$cliente->carga_max}}</td>
-            <td><a href="{{ route('clientes.edit',$cliente->id)}}" class="btn btn-primary">Editar</a></td>
+            <td>{{$gestor->id}}</td>
+            <td>{{$gestor->user_id}}</td>
+            <td>{{$gestor->horario}}</td>
+
+            <td><a href="{{ route('gestores.edit',$gestor->id)}}" class="btn btn-primary">Editar</a></td>
             <td>
-                <form action="{{ route('clientes.destroy', $cliente->id)}}" method="post">
+                <form action="{{ route('gestores.destroy', $gestor->id)}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">Borrar</button>

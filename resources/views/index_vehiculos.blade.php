@@ -31,6 +31,12 @@
 </div>
 <br>
 <div class="uper">
+
+<h4>Vehiculos</h4>
+<p>
+A continuación se muestra una tabla con la información de los distintos tipos de vehículos que usan los muelles.
+</p>
+
   @if(session()->get('success'))
     <div class="alert alert-success">
       {{ session()->get('success') }}  
@@ -38,12 +44,12 @@
   @endif
   <table class="table table-striped">
     <thead>
-        <tr>
+        <tr bgcolor="#003865" style="color: #FFFFFF;" align="center">
           <td>ID</td>
           <td>Tipo de Vehículo</td>
           <td>Tiempo de Carga</td>
           <td>Tiempo de Descarga</td>
-          <td colspan="2">Action</td>
+          <td colspan="2"><a href="{{ url('vehiculos/create') }}" class="btn btn-success btn-block"> Añadir Vehículo</a></td>
         </tr>
     </thead>
     <tbody>

@@ -32,6 +32,12 @@
 </div>
 <br>
 <div class="uper">
+
+<h4>Muelles</h4>
+<p>
+A continuación se muestra una tabla con la información de los muelles.
+</p>
+
   @if(session()->get('success'))
     <div class="alert alert-success">
       {{ session()->get('success') }}  
@@ -39,10 +45,10 @@
   @endif
   <table class="table table-striped">
     <thead>
-        <tr>
+        <tr bgcolor="#003865" style="color: #FFFFFF;" align="center">
           <td>ID</td>
           <td>Tipo de Muelle</td>
-          <td colspan="2">Action</td>
+          <td colspan="2"><a href="{{ url('muelles/create') }}" class="btn btn-success btn-block"> Añadir Muelle</a></td>
         </tr>
     </thead>
     <tbody>

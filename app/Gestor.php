@@ -10,4 +10,6 @@ class Gestor extends Model
     {
         return $this->belongsTo(User::class)->withTimestamps();
     }
+
+    protected $fillable = ['id', 'user_id', 'horario'];
 }

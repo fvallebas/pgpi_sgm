@@ -31,7 +31,7 @@
           <div class="form-group">
               @csrf
               <label for="name">Usuario: (id de usuario)</label>
-              <input type="text" class="form-control" name="use_id"/>
+              <input type="text" class="form-control" name="user_id"/>
           </div>
           <div class="form-group">
               <label for="price">Matrícula :</label>

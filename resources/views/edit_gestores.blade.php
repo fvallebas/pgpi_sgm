@@ -23,26 +23,14 @@
         </ul>
       </div><br />
     @endif
-      <form method="post" action="{{ route('clientes.update', $cliente->id) }}">
+      <form method="post" action="{{ route('gestores.update', $gestor->id) }}">
           <div class="form-group">
               @csrf
               @method('PATCH')
-              <label for="name">Matrícula :</label>
-              <input type="text" class="form-control" name="matricula" value="{{$cliente->matricula}}"/>
+              <label for="name">Horario :</label>
+              <input type="text" class="form-control" name="horario" value="{{$gestor->horario}}"/>
           </div>
-          <div class="form-group">
-              <label for="price">Marca :</label>
-              <input type="text" class="form-control" name="marca" value="{{$cliente->marca}}"/>
-          </div>
-          <div class="form-group">
-              <label for="quantity">Modelo :</label>
-              <input type="text" class="form-control" name="modelo" value="{{$cliente->modelo}}"/>
-          </div>
-          <div class="form-group">
-              <label for="quantity">Carga máxima :</label>
-              <input type="text" class="form-control" name="carga_max" value="{{$cliente->carga_max}}"/>
-          </div>
-          <button type="submit" class="btn btn-primary">Actualizar Cliente</button>
+          <button type="submit" class="btn btn-primary">Actualizar Gestor</button>
       </form>
   </div>
 </div>
