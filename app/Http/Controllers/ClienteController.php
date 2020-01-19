@@ -53,6 +53,8 @@ class ClienteController extends Controller
         $user->email = $validatedData['email'];
         $user->password = Hash::make($validatedData['password']);
 
+        $user->save();
+
 
         $validatedData = $request->validate([
             'matricula' => 'required|alpha_num',
