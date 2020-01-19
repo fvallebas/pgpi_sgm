@@ -42,17 +42,17 @@ class User extends Authenticatable
 
     public function roles()
     {
-        return $this->belongsToMany(Role::class)->withTimestamps();
+        return $this->belongsToMany(Role::class);
     }
 
     public function gestor()
     {
-        return $this->hasOne(Cliente::class)->withTimestamps();
+        return $this->hasOne(Cliente::class);
     }
 
     public function cliente()
     {
-        return $this->hasOne(Cliente::class)->withTimestamps();
+        return $this->hasOne(Cliente::class);
     }
 
     public function authorizeRoles($roles)
