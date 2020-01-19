@@ -1,14 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use App\Vehiculo;
 use App\Cliente;
 use App\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class ClienteController extends Controller
+class ClienteGestorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,7 +19,7 @@ class ClienteController extends Controller
         $clientes = Cliente::all();
 
 
-     return view('index_clientes', compact('clientes'));
+     return view('index_clientes_gestor', compact('clientes'));
     }
 
     /**
@@ -83,7 +82,8 @@ class ClienteController extends Controller
         $cliente->vehiculo()->associate($tipo_vehiculo)->save();
         
    
-        return redirect('/clientes')->with('success', 'Cliente creado correctamente');
+        return redirect('/clientesGestor')->with('success', 'Cliente creado correctamente');
+    
     }
 
     /**
@@ -139,7 +139,7 @@ class ClienteController extends Controller
         ]);
         $cliente->update($validatedData);
 
-        return redirect('/clientes')->with('success', 'Cliente actualizado correctamente');
+        return redirect('/clientesGestor')->with('success', 'Cliente actualizado correctamente');
 
     }
 
@@ -158,6 +158,7 @@ class ClienteController extends Controller
         $user->delete();
         $cliente->delete();
 
-        return redirect('/clientes')->with('success', 'Cliente borrado correctamente');
+        return redirect('/clientesGestor')->with('success', 'Cliente borrado correctamente');
+    
     }
 }
