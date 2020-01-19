@@ -38,7 +38,7 @@ class MuelleController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'tipo_muelles_id' => 'required|numeric',
+            'tipo_operacion' => 'required|alpha_num',
 
         ]);
         $muelle = Muelle::create($validatedData);
@@ -80,7 +80,7 @@ class MuelleController extends Controller
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
-            'tipo_muelles_id' => 'required|numeric',
+            'tipo_operacion' => 'required|alpha_num',
         ]);
         Muelle::whereId($id)->update($validatedData);
 

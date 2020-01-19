@@ -55,7 +55,7 @@ A continuación se muestra una tabla con la información de los muelles.
         @foreach($muelles as $muelle)
         <tr>
             <td>{{$muelle->id}}</td>
-            <td>{{$muelle->tipo_muelles_id}}</td>
+            <td>{{$muelle->tipo_operacion}}</td>
 
             <td><a href="{{ route('muelles.edit',$muelle->id)}}" class="btn btn-primary">Editar</a></td>
             <td>

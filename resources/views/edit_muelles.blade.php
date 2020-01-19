@@ -28,7 +28,10 @@
               @csrf
               @method('PATCH')
               <label for="name">Tipo de Muelle :</label>
-              <input type="text" class="form-control" name="tipo_muelles_id" value="{{$muelle->tipo_muelles_id}}"/>
+              <select class="form-control" id="tipo_operacion" name="tipo_operacion">
+              <option>Carga</option>
+              <option>Descarga</option>
+              </select>
           </div>
           <button type="submit" class="btn btn-primary">Actualizar Muelle</button>
       </form>
