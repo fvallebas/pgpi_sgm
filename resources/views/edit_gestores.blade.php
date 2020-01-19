@@ -27,6 +27,14 @@
           <div class="form-group">
               @csrf
               @method('PATCH')
+              <label for="name">Nombre :</label>
+              <input type="text" class="form-control" name="name" value="{{$gestor->user->name}}"/>
+          </div>
+          <div class="form-group">
+              <label for="name">Email :</label>
+              <input type="text" class="form-control" name="email" value="{{$gestor->user->email}}"/>
+          </div>
+          <div class="form-group">
               <label for="name">Horario :</label>
               <input type="text" class="form-control" name="horario" value="{{$gestor->horario}}"/>
           </div>

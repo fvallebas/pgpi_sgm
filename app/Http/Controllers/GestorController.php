@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Gestor;
+use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class GestorController extends Controller
 {
@@ -37,11 +39,32 @@ class GestorController extends Controller
      */
     public function store(Request $request)
     {
+        $user = new User();
+
         $validatedData = $request->validate([
-            'user_id' => 'required|numeric',
+            'name' => 'required|max:255',
+            'email' => 'required|max:255',
+            'password' => 'required|alpha_num',
+        ]);
+        $user->name = $validatedData['name'];
+        $user->email = $validatedData['email'];
+        $user->password = Hash::make($validatedData['password']);
+        $user->save();
+
+
+        $validatedData = $request->validate([
             'horario' => 'required|alpha_num',
         ]);
-        $gestor = Gestor::create($validatedData);
+        //$gestor = Gestor::create($validatedData);
+
+        $gestor = new Gestor();
+
+        $gestor->user_id = $user->id;
+        $gestor->horario = $validatedData['horario'];
+
+        $user->gestor()->save($gestor);
+        $gestor->user()->associate($user)->save();
+
 
         return redirect('/gestores')->with('success', 'Gestor creado correctamente');
     }
@@ -79,10 +102,20 @@ class GestorController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $gestor = Gestor::whereId($id)->firstOrFail();
+        $user = User::whereId($gestor->user_id);
+
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|max:255',
+        ]);
+        $user->update($validatedData);
+
         $validatedData = $request->validate([
             'horario' => 'required|alpha_num',
         ]);
-        Gestor::whereId($id)->update($validatedData);
+        $gestor->update($validatedData);
+        //Gestor::whereId($id)->update($validatedData);
 
         return redirect('/gestores')->with('success', 'Gestor actualizado correctamente');
     }
@@ -95,8 +128,14 @@ class GestorController extends Controller
      */
     public function destroy($id)
     {
+        
         $gestor = Gestor::findOrFail($id);
+        $user = User::findOrFail($gestor->user_id);
+
+        $user->delete();
         $gestor->delete();
+
+        
 
         return redirect('/gestores')->with('success', 'Gestor borrado correctamente');
     }

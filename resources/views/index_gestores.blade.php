@@ -46,7 +46,8 @@ A continuación se muestra una tabla con la información de los gestores de los 
     <thead>
         <tr bgcolor="#003865" style="color: #FFFFFF;" align="center">
           <td>ID</td>
-          <td>ID Usuario</td>
+          <td>Nombre</td>
+          <td>Email</td>
           <td>Horario</td>
 
           <td colspan="2"><a href="{{ url('gestores/create') }}" class="btn btn-success btn-block"> Añadir Gestor</a></td>
@@ -54,9 +55,10 @@ A continuación se muestra una tabla con la información de los gestores de los 
     </thead>
     <tbody>
         @foreach($gestores as $gestor)
-        <tr>
+        <tr align="center"> 
             <td>{{$gestor->id}}</td>
-            <td>{{$gestor->user_id}}</td>
+            <td>{{$gestor->user->name}}</td>
+            <td>{{$gestor->user->email}}</td>
             <td>{{$gestor->horario}}</td>
 
             <td><a href="{{ route('gestores.edit',$gestor->id)}}" class="btn btn-primary">Editar</a></td>

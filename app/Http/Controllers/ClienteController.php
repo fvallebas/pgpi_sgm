@@ -152,7 +152,14 @@ class ClienteController extends Controller
     public function destroy($id)
     {
         $cliente = Cliente::findOrFail($id);
+        $user = User::findOrFail($cliente->user_id);
+        
+
+        $user->delete();
         $cliente->delete();
+        
+
+        
 
         return redirect('/clientes')->with('success', 'Cliente borrado correctamente');
     }
