@@ -58,7 +58,7 @@ A continuación se muestra una tabla con la información referente a los cliente
         @foreach($clientes as $cliente)
         <tr>
             <td>{{$cliente->id}}</td>
-            <td>{{$cliente->vehiculo_id}}</td>
+            <td>{{$cliente->vehiculo->tipo_vehiculo}}</td>
             <td>{{$cliente->matricula}}</td>
             <td>{{$cliente->marca}}</td>
             <td>{{$cliente->modelo}}</td>
