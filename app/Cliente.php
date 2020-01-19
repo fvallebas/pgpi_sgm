@@ -15,7 +15,7 @@ class Cliente extends Model
 
     public function vehiculo()
     {
-        return $this->hasOne(Vehiculo::class);
+        return $this->belongsTo(Vehiculo::class);
     }
 
     protected $fillable = ['id', 'user_id', 'matricula', 'marca', 'modelo', 'carga_max','vehiculo_id'];

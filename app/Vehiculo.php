@@ -7,9 +7,9 @@ use App\Cliente;
 
 class Vehiculo extends Model
 {
-    public function cliente()
+    public function clientes()
     {
-        return $this->belongsTo(Cliente::class);
+        return $this->hasMany(Cliente::class);
     }
 
     protected $fillable = ['id', 'tipo_vehiculo', 'tiempo_carga','tiempo_descarga'];
