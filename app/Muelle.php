@@ -11,4 +11,6 @@ class Muelle extends Model
     {
         return $this->belongsTo(TipoMuelle::class)->withTimestamps();
     }
+
+    
 }

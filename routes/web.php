@@ -50,3 +50,6 @@ Route::resource('clientes', 'ClienteController');
 
 //Vehiculos
 Route::resource('vehiculos', 'VehiculoController');
+
+//Muelles
+Route::resource('muelles', 'MuelleController');

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Vehiculo;
+use App\Muelle;
 
-class VehiculoController extends Controller
+class MuelleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class VehiculoController extends Controller
      */
     public function index()
     {
-        $vehiculos = Vehiculo::all();
+        $muelles = Muelle::all();
 
-     return view('index_vehiculos', compact('vehiculos'));
+     return view('index_muelles', compact('muelles'));
     }
 
     /**
@@ -26,7 +26,7 @@ class VehiculoController extends Controller
      */
     public function create()
     {
-        return view('create_vehiculos');
+        return view('create_muelles');
     }
 
     /**
@@ -38,14 +38,12 @@ class VehiculoController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'id' => 'required|max:255',
-            'tipo_vehiculo' => 'required|alpha_num',
-            'tiempo_carga' => 'required|max:255',
-            'tiempo_descarga' => 'required|max:255',
+            'tipo_muelles_id' => 'required|numeric',
+
         ]);
-        $vehiculo = Vehiculo::create($validatedData);
+        $muelle = Muelle::create($validatedData);
    
-        return redirect('/vehiculos')->with('success', 'Vehículo creado correctamente');
+        return redirect('/muelles')->with('success', 'Muelle guardado correctamente');
     }
 
     /**
@@ -67,9 +65,9 @@ class VehiculoController extends Controller
      */
     public function edit($id)
     {
-        $vehiculo = Vehiculo::findOrFail($id);
+        $muelle = Muelle::findOrFail($id);
 
-        return view('edit_vehiculos', compact('vehiculo'));
+        return view('edit_muelles', compact('muelle'));
     }
 
     /**
@@ -82,13 +80,11 @@ class VehiculoController extends Controller
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
-            'tipo_vehiculo' => 'required|alpha_num',
-            'tiempo_carga' => 'required|max:255',
-            'tiempo_descarga' => 'required|max:255',
+            'tipo_muelles_id' => 'required|numeric',
         ]);
-        Vehiculo::whereId($id)->update($validatedData);
+        Muelle::whereId($id)->update($validatedData);
 
-        return redirect('/vehiculos')->with('success', 'Vehículo actualizado correctamente');
+        return redirect('/muelles')->with('success', 'Muelle actualizado correctamente');
     }
 
     /**
@@ -99,9 +95,9 @@ class VehiculoController extends Controller
      */
     public function destroy($id)
     {
-        $vehiculo = Vehiculo::findOrFail($id);
-        $vehiculo->delete();
+        $muelle = Muelle::findOrFail($id);
+        $muelle->delete();
 
-        return redirect('/vehiculos')->with('success', 'Vehículo borrado correctamente');
+        return redirect('/muelles')->with('success', 'Muelle borrado correctamente');
     }
 }
