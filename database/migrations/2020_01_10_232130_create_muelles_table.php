@@ -15,8 +15,7 @@ class CreateMuellesTable extends Migration
     {
         Schema::create('muelles', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
-            $table->bigInteger('tipo_muelles_id')->unsigned();
-            $table->foreign('tipo_muelles_id')->references('id')->on('tipo_muelles')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('tipo_operacion');
             $table->timestamps();
         });
     }
