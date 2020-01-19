@@ -29,9 +29,21 @@
     @endif
       <form method="post" action="{{ route('clientes.store') }}">
           <div class="form-group">
-              @csrf
-              <label for="name">Usuario: (id de usuario)</label>
-              <input type="text" class="form-control" name="user_id"/>
+               @csrf
+              <label for="price">Nombre Completo :</label>
+              <input type="text" class="form-control" name="name"/>
+          </div>
+          <div class="form-group">
+              <label for="price">Email :</label>
+              <input type="text" class="form-control" name="email"/>
+          </div>
+          <div class="form-group">
+              <label for="price">Contraseña :</label>
+              <input type="password" class="form-control" name="password"/>
+          </div>
+          <div class="form-group">
+              <label for="quantity">Tipo de vehículo :</label>
+              <input type="text" class="form-control" name="vehiculo_id"/>
           </div>
           <div class="form-group">
               <label for="price">Matrícula :</label>
