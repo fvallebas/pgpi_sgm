@@ -40,6 +40,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Gestores
 Route::get('/gestores', 'GestorController@index');
+Route::get('/gestores', 'GestorController@index')->name('gestores');
 
 //Admin
 Route::get('/admin', 'AdminController@index');
@@ -47,9 +48,16 @@ Route::get('/admin', 'AdminController@index');
 //Clientes
 //Route::get('/clientes', 'ClienteController@index');
 Route::resource('clientes', 'ClienteController');
+Route::get('/clientes', 'ClienteController@index')->name('clientes');
 
 //Vehiculos
 Route::resource('vehiculos', 'VehiculoController');
+Route::get('/vehiculos', 'VehiculoController@index')->name('vehiculos');
 
 //Muelles
 Route::resource('muelles', 'MuelleController');
+Route::get('/muelles', 'MuelleController@index')->name('muelles');
+
+//Horarios
+Route::resource('horarios', 'HorarioController');
+Route::get('/horarios', 'HorarioController@index')->name('horarios');

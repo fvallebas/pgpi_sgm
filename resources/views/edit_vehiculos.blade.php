@@ -8,6 +8,7 @@
     margin-top: 40px;
   }
 </style>
+<div class="py-4" style="margin-right: 5%; margin-left: 5%;">
 <div class="card uper">
   <div class="card-header">
     Editar Cliente
@@ -40,5 +41,6 @@
           <button type="submit" class="btn btn-primary">Actualizar Vehículo</button>
       </form>
   </div>
+</div>
 </div>
 @endsection

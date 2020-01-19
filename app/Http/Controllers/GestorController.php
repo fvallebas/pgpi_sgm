@@ -8,6 +8,6 @@ class GestorController extends Controller
 {
     public function index()
     {
-        return view ('gestores');
+        return view ('index_gestores');
     }
 }

@@ -19,10 +19,10 @@
           <a class="nav-link " href="{{ Route('muelles') }}">Muelles</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ Route('gestores') }}">Gestores</a>
+          <a class="nav-link active" href="{{ Route('gestores') }}">Gestores</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active"  href="{{ Route('clientes') }}">Clientes</a>
+          <a class="nav-link "  href="{{ Route('clientes') }}">Clientes</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ Route('vehiculos') }}">Vehiculos</a>

@@ -10,6 +10,25 @@
 </style>
 <br>
 <div class="uper" style="margin-right: 5%; margin-left: 5%;">
+<div class="py-4" style="margin-right: 5%; margin-left: 5%;">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ Route('horarios') }}">Horarios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="{{ Route('muelles') }}">Muelles</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ Route('gestores') }}">Gestores</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  href="{{ Route('clientes') }}">Clientes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{{ Route('vehiculos') }}">Vehiculos</a>
+        </li>
+    </ul>
+</div>
 <br>
 <div class="uper">
   @if(session()->get('success'))
@@ -34,12 +53,12 @@
             <td>{{$vehiculo->tipo_vehiculo}}</td>
             <td>{{$vehiculo->tiempo_carga}}</td>
             <td>{{$vehiculo->tiempo_descarga}}</td>
-            <td><a href="{{ route('vehiculos.edit',$vehiculo->id)}}" class="btn btn-primary">Edit</a></td>
+            <td><a href="{{ route('vehiculos.edit',$vehiculo->id)}}" class="btn btn-primary">Editar</a></td>
             <td>
                 <form action="{{ route('vehiculos.destroy', $vehiculo->id)}}" method="post">
                   @csrf
                   @method('DELETE')
-                  <button class="btn btn-danger" type="submit">Delete</button>
+                  <button class="btn btn-danger" type="submit">Borrar</button>
                 </form>
             </td>
         </tr>
