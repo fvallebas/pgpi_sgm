@@ -9,8 +9,8 @@ class Muelle extends Model
 {
     public function tipo_muelle()
     {
-        return $this->belongsTo(TipoMuelle::class)->withTimestamps();
+        return $this->belongsTo(TipoMuelle::class);
     }
 
-    
+
 }
