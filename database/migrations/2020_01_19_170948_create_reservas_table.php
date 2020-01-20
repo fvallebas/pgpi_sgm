@@ -16,7 +16,14 @@ class CreateReservasTable extends Migration
         //
         Schema::create('reservas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
+            $table->bigInteger('cliente_id')->unsigned();
+            $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete('cascade')->onUpdate('cascade');
+            $table->bigInteger('muelle_id')->unsigned();
+            $table->foreign('muelle_id')->references('id')->on('muelles')->onDelete('cascade')->onUpdate('cascade');
+            $table->datetime('horario_entrada');
+            $table->datetime('horario_salida');
+
+
         });
     }
 

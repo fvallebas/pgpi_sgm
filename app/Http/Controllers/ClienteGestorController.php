@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Vehiculo;
 use App\Cliente;
 use App\User;
+use App\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -43,7 +44,7 @@ class ClienteGestorController extends Controller
     public function store(Request $request)
     {
         $user = new User();
-
+        $cliente = Role::where('name', '=', 'cliente')->firstOrFail();
 
         $validatedData = $request->validate([
             'name' => 'required|max:255',
@@ -54,7 +55,8 @@ class ClienteGestorController extends Controller
         $user->email = $validatedData['email'];
         $user->password = Hash::make($validatedData['password']);
 
-        $user->save();
+        $cliente->users()->save($user);
+        $user->role()->associate($cliente)->save();
 
 
         $validatedData = $request->validate([

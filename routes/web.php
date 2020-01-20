@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
 
-    return 'Home';
+    return view('auth.login');
 });
 
 Route::get('/usuarios', 'UserController@index');
@@ -43,7 +43,7 @@ Route::resource('/gestores', 'GestorController');
 Route::get('/gestores', 'GestorController@index')->name('gestores');
 
 //Admin
-Route::get('/admin', 'AdminController@index');
+//Route::get('/admin', 'AdminController@index');
 
 //Clientes
 //Route::get('/clientes', 'ClienteController@index');
@@ -65,3 +65,7 @@ Route::get('/horarios', 'HorarioController@index')->name('horarios');
 //Clientes_Gestores
 Route::resource('clienteGestor', 'ClienteGestorController');
 Route::get('/clienteGestor', 'ClienteGestorController@index')->name('clienteGestor');
+
+//Reservas clientes
+Route::resource('reservasCliente', 'ReservasClienteController');
+Route::get('/reservasCliente', 'ReservasClienteController@index')->name('reservasCliente');
