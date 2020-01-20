@@ -13,19 +13,7 @@
 <div class="py-4" style="margin-right: 5%; margin-left: 5%;">
     <ul class="nav nav-tabs">
         <li class="nav-item">
-          <a class="nav-link" href="{{ Route('horarios') }}">Horarios</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " href="{{ Route('muelles') }}">Muelles</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ Route('gestores') }}">Gestores</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active"  href="{{ Route('clientes') }}">Clientes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ Route('vehiculos') }}">Vehiculos</a>
+          <a class="nav-link active"  href="{{ Route('clienteGestor') }}">Clientes</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="">Reservas</a>
@@ -56,7 +44,7 @@ A continuación se muestra una tabla con la información referente a los cliente
           <td>Marca</td>
           <td>Modelo</td>
           <td>Carga Máxima</td>
-          <td colspan="2"><a href="{{ url('clientes/create') }}" class="btn btn-success btn-block"> Añadir Cliente</a></td>
+          <td colspan="2"><a href="{{ url('clienteGestor/create') }}" class="btn btn-success btn-block"> Añadir Cliente</a></td>
         </tr>
     </thead>
     <tbody>
@@ -70,9 +58,9 @@ A continuación se muestra una tabla con la información referente a los cliente
             <td>{{$cliente->marca}}</td>
             <td>{{$cliente->modelo}}</td>
             <td>{{$cliente->carga_max}}</td>
-            <td><a href="{{ route('clientes.edit',$cliente->id)}}" class="btn btn-primary">Editar</a></td>
+            <td><a href="{{ route('clienteGestor.edit',$cliente->id)}}" class="btn btn-primary">Editar</a></td>
             <td>
-                <form action="{{ route('clientes.destroy', $cliente->id)}}" method="post">
+                <form action="{{ route('clienteGestor.destroy', $cliente->id)}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">Borrar</button>

@@ -27,6 +27,9 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ Route('vehiculos') }}">Vehiculos</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="">Reservas</a>
+        </li>
     </ul>
 </div>
 <br>

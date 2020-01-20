@@ -28,6 +28,9 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ Route('vehiculos') }}">Vehiculos</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="">Reservas</a>
+        </li>
     </ul>
 </div>
 <br>
@@ -53,7 +56,7 @@ A continuación se muestra una tabla con la información de los muelles.
     </thead>
     <tbody>
         @foreach($muelles as $muelle)
-        <tr>
+        <tr align="center">
             <td>{{$muelle->id}}</td>
             <td>{{$muelle->tipo_operacion}}</td>
 
