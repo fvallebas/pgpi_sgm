@@ -63,5 +63,5 @@ Route::resource('horarios', 'HorarioController');
 Route::get('/horarios', 'HorarioController@index')->name('horarios');
 
 //Clientes_Gestores
-Route::resource('clientes', 'ClienteGestorController');
-Route::get('/clientesGestor', 'ClienteGestorController@index')->name('clientes');
+Route::resource('clienteGestor', 'ClienteGestorController');
+Route::get('/clienteGestor', 'ClienteGestorController@index')->name('clienteGestor');

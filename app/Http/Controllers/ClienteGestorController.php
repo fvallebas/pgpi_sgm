@@ -31,7 +31,7 @@ class ClienteGestorController extends Controller
     {
         $lista_vehiculos = Vehiculo::all();
 
-        return view ('create_clientes', compact('lista_vehiculos'));
+        return view ('create_clientes_gestor', compact('lista_vehiculos'));
     }
 
     /**
@@ -82,7 +82,7 @@ class ClienteGestorController extends Controller
         $cliente->vehiculo()->associate($tipo_vehiculo)->save();
         
    
-        return redirect('/clientesGestor')->with('success', 'Cliente creado correctamente');
+        return redirect('/clienteGestor')->with('success', 'Cliente creado correctamente');
     
     }
 
@@ -108,7 +108,7 @@ class ClienteGestorController extends Controller
         $lista_vehiculos = Vehiculo::all();
         $cliente = Cliente::findOrFail($id);
 
-        return view('edit_clientes', compact('cliente'),compact('lista_vehiculos'));
+        return view('edit_clientes_gestor', compact('cliente'),compact('lista_vehiculos'));
 
     }
 
@@ -139,7 +139,7 @@ class ClienteGestorController extends Controller
         ]);
         $cliente->update($validatedData);
 
-        return redirect('/clientesGestor')->with('success', 'Cliente actualizado correctamente');
+        return redirect('/clienteGestor')->with('success', 'Cliente actualizado correctamente');
 
     }
 
@@ -158,7 +158,7 @@ class ClienteGestorController extends Controller
         $user->delete();
         $cliente->delete();
 
-        return redirect('/clientesGestor')->with('success', 'Cliente borrado correctamente');
+        return redirect('/clienteGestor')->with('success', 'Cliente borrado correctamente');
     
     }
 }

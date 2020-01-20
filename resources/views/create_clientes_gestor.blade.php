@@ -27,7 +27,7 @@
         </ul>
       </div><br />
     @endif
-      <form method="post" action="{{ route('clientes.store') }}">
+      <form method="post" action="{{ route('clienteGestor.store') }}">
           <div class="form-group">
                @csrf
               <label for="price">Nombre Completo :</label>
