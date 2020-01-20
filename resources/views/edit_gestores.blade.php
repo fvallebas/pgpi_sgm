@@ -36,7 +36,10 @@
           </div>
           <div class="form-group">
               <label for="name">Horario :</label>
-              <input type="text" class="form-control" name="horario" value="{{$gestor->horario}}"/>
+              <select class="form-control" id="horario" name="horario" value="{{$gestor->horario}}">
+              <option>Mañana</option>
+              <option>Tarde</option>
+              </select>
           </div>
           <button type="submit" class="btn btn-primary">Actualizar Gestor</button>
       </form>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Gestor;
+use App\Role;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 
@@ -40,6 +41,7 @@ class GestorController extends Controller
     public function store(Request $request)
     {
         $user = new User();
+        $gestor = Role::where('name', '=', 'gestor')->firstOrFail();
 
         $validatedData = $request->validate([
             'name' => 'required|max:255',
@@ -49,7 +51,9 @@ class GestorController extends Controller
         $user->name = $validatedData['name'];
         $user->email = $validatedData['email'];
         $user->password = Hash::make($validatedData['password']);
-        $user->save();
+        
+        $gestor->users()->save($user);
+        $user->role()->associate($gestor)->save();
 
 
         $validatedData = $request->validate([
@@ -64,6 +68,7 @@ class GestorController extends Controller
 
         $user->gestor()->save($gestor);
         $gestor->user()->associate($user)->save();
+
 
 
         return redirect('/gestores')->with('success', 'Gestor creado correctamente');
