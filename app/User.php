@@ -70,7 +70,7 @@ class User extends Authenticatable
             }
         } else {
             if ($this->hasRole($roles)) {
-                return true;
+               return true;
             }
         }
         return false;
@@ -78,7 +78,7 @@ class User extends Authenticatable
 
     public function hasRole($role)
     {
-        if ($this->roles()->where('name', $role)->first()) {
+        if ($this->role() == $role) {
             return true;
         }
         return false;

@@ -24,7 +24,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="http://bemadrid.com/wp-content/uploads/2017/07/ufv-logo.png" alt="Smiley face" height="42" width="42">
+                    <img src="https://www.mentta.es/empresas/logos/DHL.jpg" alt="Smiley face" height="42" width="42">
                     Sistema de Gestión de Muelles
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
