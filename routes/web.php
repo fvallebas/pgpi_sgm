@@ -78,6 +78,10 @@ Route::get('/reservasGestor', 'ReservasGestorController@index')->name('reservasG
 Route::resource('reservasAdmin', 'ReservasAdminController');
 Route::get('/reservasAdmin', 'ReservasAdminController@index')->name('reservasAdmin');
 
+//Barrera
+Route::resource('barrera', 'BarreraController');
+Route::get('/barrera', 'BarreraController@index')->name('barrera');
+
 
 
 

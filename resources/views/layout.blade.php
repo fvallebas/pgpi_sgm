@@ -27,7 +27,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+            <div class="container" >>
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="https://www.mentta.es/empresas/logos/DHL.jpg" alt="Smiley face" height="42" width="42">
                     Sistema de Gestión de Muelles
