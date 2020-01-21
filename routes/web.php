@@ -69,3 +69,15 @@ Route::get('/clienteGestor', 'ClienteGestorController@index')->name('clienteGest
 //Reservas clientes
 Route::resource('reservasCliente', 'ReservasClienteController');
 Route::get('/reservasCliente', 'ReservasClienteController@index')->name('reservasCliente');
+
+//Reservas clientes
+Route::resource('reservasGestor', 'ReservasGestorController');
+Route::get('/reservasGestor', 'ReservasGestorController@index')->name('reservasGestor');
+
+//Reservas clientes
+Route::resource('reservasAdmin', 'ReservasAdminController');
+Route::get('/reservasAdmin', 'ReservasAdminController@index')->name('reservasAdmin');
+
+
+
+

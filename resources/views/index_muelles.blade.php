@@ -14,9 +14,6 @@
 <div class="py-4" style="margin-right: 5%; margin-left: 5%;">
     <ul class="nav nav-tabs">
         <li class="nav-item">
-          <a class="nav-link" href="{{ Route('horarios') }}">Horarios</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link active" href="{{ Route('muelles') }}">Muelles</a>
         </li>
         <li class="nav-item">
@@ -29,7 +26,7 @@
           <a class="nav-link" href="{{ Route('vehiculos') }}">Vehiculos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="">Reservas</a>
+          <a class="nav-link"  href="{{ Route('reservasAdmin') }}">Reservas</a>
         </li>
     </ul>
 </div>

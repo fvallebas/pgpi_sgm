@@ -36,7 +36,7 @@ class LoginController extends Controller
                 return '/clientes';
             break;
         case 'gestor':
-                return '/gestor';
+                return '/clienteGestor';
             break; 
         case 'cliente':
                 return '/reservasCliente';

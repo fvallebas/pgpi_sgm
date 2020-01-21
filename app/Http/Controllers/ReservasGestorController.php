@@ -1,16 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use App\Reserva;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Muelle;
 use DateTime;
 use DatePeriod;
 use DateInterval;
 
-class ReservasClienteController extends Controller
+class reservasGestorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,9 +18,9 @@ class ReservasClienteController extends Controller
      */
     public function index()
     {
-        $reservas = $cliente = Auth::user()->cliente->reservas;
+        $reservas = Reserva::all();
 
-        return view('index_reservaCliente', compact('reservas'));
+        return view('index_reservaGestor', compact('reservas'));
     }
 
     /**
@@ -31,7 +30,7 @@ class ReservasClienteController extends Controller
      */
     public function create()
     {
-        return view('create_reservaCliente');
+        return view('create_reservaGestor');
     }
 
     /**
@@ -42,7 +41,6 @@ class ReservasClienteController extends Controller
      */
     public function store(Request $request)
     {
-
         // Carga cliente
         $cliente = Auth::user()->cliente;
 
@@ -71,17 +69,17 @@ class ReservasClienteController extends Controller
 
         $time_to_add = date_create_from_format('H:i:s',$time_to_add);
 
-        $minutos_anadir = strval(intval($time_to_add->format('i')));
-        $horas_anadir = strval(intval($time_to_add->format('H')));
+        $minutos_quitar = '5';
+        $minutos_anadir = $time_to_add->format('i');
+        $horas_anadir = $time_to_add->format('H');
 
         // Fecha de entrada
         $fecha = $validatedData['fecha'].' '.$validatedData['hora'];
         $fecha_base = date_create_from_format('d/m/Y H:i', $fecha);
 
-        
-        $fecha_entrada = date("Y/m/d H:i",strtotime("-5 minutes", strtotime($fecha)));
-        $fecha_salida = strtotime("+".$horas_anadir." hours ".$minutos_anadir." minutes", strtotime($fecha));
-        $fecha_salida = date("Y-m-d H:i",strtotime("+5 minutes", $fecha_salida));
+
+        $fecha_entrada = $fecha_base->sub(new DateInterval('P0Y0DT0H'. $minutos_quitar . 'M'));
+        $fecha_salida = $fecha_base->add(new DateInterval('P0Y0DT' . $horas_anadir . 'H'. $minutos_anadir . 'M'));
 
         $reserva = new Reserva();
         $reserva->horario_entrada = $fecha_entrada;
@@ -95,7 +93,7 @@ class ReservasClienteController extends Controller
 
         
         
-        return redirect('/reservasCliente')->with('success', 'Reserva realizada correctamente');
+        return redirect('/reservasGestor')->with('success', 'Reserva realizada correctamente');
 
     }
 
@@ -144,6 +142,7 @@ class ReservasClienteController extends Controller
         $reserva = Reserva::findOrFail($id);
         $reserva->delete();
 
-        return redirect('/reservasCliente')->with('success', 'Reserva borrada correctamente');
+        return redirect('/reservasGestor')->with('success', 'Reserva borrada correctamente');
+    
     }
 }
